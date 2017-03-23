@@ -6,21 +6,13 @@ using System.Web.Http;
 namespace OwinSelfhostSample
 {
 
-    public abstract class BaseController : ApiController
-    {
-        public BaseController()
-        {
-            OwinRequestScopeContext.Current.Items["Data"] = "Test Data";
-        }        
-    }
 
-    public class MainController : BaseController
+    public class MainController : ApiController
     {
         // GET api/values 
         public IEnumerable<string> Get()
-        {
-            var value = OwinRequestScopeContext.Current.Items["Data"].ToString();
-            return new string[] { "value1", value };
+        {            
+            return new string[] { "value1", };
         }
 
         // GET api/values/5 
